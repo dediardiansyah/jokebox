@@ -1,0 +1,16 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.link {
+    padding: 5px;
+    display: block;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
