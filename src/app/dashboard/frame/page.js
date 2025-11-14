@@ -32,14 +32,17 @@ export default function DashboardFrame() {
         <div>
           {data?.map((item) => {
             return (
-              <div key={item.id} className="flex flex-row justify-between p-2 bg-amber-200 rounded mb-1">
-                <div>
+              <div key={item.id} className="flex flex-row p-2 bg-amber-200 rounded mb-1 justify-between">
+                <div className="w-[580px]">
                   <span>{item.id}</span>
                 </div>
-                <div>
+                <div className="w-full">
                   <span>{item.name}</span>
                 </div>
-                <div className="cursor-pointer hover:underline">Action</div>
+                <div className="cursor-pointer hover:underline w-[90px] text-center">
+                  <a href={`./frame/edit/${item.id}`}>Edit</a>
+                </div>
+                <div className="cursor-pointer hover:underline w-[90px] text-center">Action</div>
               </div>
             );
           })}

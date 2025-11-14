@@ -116,7 +116,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+a{
+  outline: none !important;
+}
+a:hover {
+  text-decoration: underline;
 }

@@ -34,6 +34,9 @@ export default function Header() {
                         <Link href="/dashboard/frame/create" className="text-gray-700 hover:text-gray-900">
                             Create Frame
                         </Link>
+                        <Link href="/login" className="text-gray-700 hover:text-gray-900">
+                            Login
+                        </Link>
                     </div>
                 </div>
             </nav>
