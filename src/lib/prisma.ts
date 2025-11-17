@@ -5,6 +5,9 @@
 // globalForPrisma.prisma = prisma;
 
 import { PrismaClient } from "@prisma/client";
+//@ts-ignore
+import { withPg } from '@prisma/adapter-pg';
+
 let prisma;
 if (!global.prisma) {
   global.prisma = new PrismaClient();
