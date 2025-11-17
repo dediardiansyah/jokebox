@@ -270,48 +270,48 @@ const FabricCanvasComponent = () => {
 
   // --- Logika Snap Grid ---
 
-  const snapToGrid = (options) => {
-    if (!isGridEnabled || !fabricCanvasRef.current) return;
-    const target = options.target;
+  // const snapToGrid = (options) => {
+  //   if (!isGridEnabled || !fabricCanvasRef.current) return;
+  //   const target = options.target;
 
-    // Snap Posisi (Moving)
-    target.set({
-      left: Math.round(target.left / GRID_SIZE) * GRID_SIZE,
-      top: Math.round(target.top / GRID_SIZE) * GRID_SIZE,
-    });
+  //   // Snap Posisi (Moving)
+  //   target.set({
+  //     left: Math.round(target.left / GRID_SIZE) * GRID_SIZE,
+  //     top: Math.round(target.top / GRID_SIZE) * GRID_SIZE,
+  //   });
 
-    // Snap Scaling (Mengubah Ukuran) - memastikan batas tetap di grid
-    if (options.transform) {
-      // Logika ini kompleks untuk disnap ke grid secara visual
-      // Cukup snap posisi saat ini dan rotasi
-    }
+  //   // Snap Scaling (Mengubah Ukuran) - memastikan batas tetap di grid
+  //   if (options.transform) {
+  //     // Logika ini kompleks untuk disnap ke grid secara visual
+  //     // Cukup snap posisi saat ini dan rotasi
+  //   }
 
-    // Snap Rotasi (45 derajat)
-    const angleSnap = 45;
-    target.set({
-      angle: Math.round(target.angle / angleSnap) * angleSnap,
-    });
+  //   // Snap Rotasi (45 derajat)
+  //   const angleSnap = 45;
+  //   target.set({
+  //     angle: Math.round(target.angle / angleSnap) * angleSnap,
+  //   });
 
-    target.setCoords();
-    fabricCanvasRef.current.renderAll();
-  };
+  //   target.setCoords();
+  //   fabricCanvasRef.current.renderAll();
+  // };
 
-  const toggleGrid = () => {
-    const newGridState = !isGridEnabled;
-    setIsGridEnabled(newGridState);
-    setStatus(`Snap Grid is now ${newGridState ? "Enabled" : "Disabled"}.`);
+  // const toggleGrid = () => {
+  //   const newGridState = !isGridEnabled;
+  //   setIsGridEnabled(newGridState);
+  //   setStatus(`Snap Grid is now ${newGridState ? "Enabled" : "Disabled"}.`);
 
-    // Tampilkan/Sembunyikan grid visual di latar belakang
-    if (fabricCanvasRef.current) {
-      if (newGridState) {
-        drawGrid(fabricCanvasRef.current);
-      } else {
-        // Hapus background image (grid)
-        fabricCanvasRef.current.setBackgroundImage(null, fabricCanvasRef.current.renderAll.bind(fabricCanvasRef.current));
-        fabricCanvasRef.current.renderAll();
-      }
-    }
-  };
+  //   // Tampilkan/Sembunyikan grid visual di latar belakang
+  //   if (fabricCanvasRef.current) {
+  //     if (newGridState) {
+  //       drawGrid(fabricCanvasRef.current);
+  //     } else {
+  //       // Hapus background image (grid)
+  //       fabricCanvasRef.current.setBackgroundImage(null, fabricCanvasRef.current.renderAll.bind(fabricCanvasRef.current));
+  //       fabricCanvasRef.current.renderAll();
+  //     }
+  //   }
+  // };
 
   // --- Efek Inisialisasi Fabric.js ---
 
@@ -337,11 +337,11 @@ const FabricCanvasComponent = () => {
           fabricCanvasRef.current = canvas;
 
           // Tambahkan listener untuk Snap Grid
-          canvas.on({
-            "object:moving": snapToGrid,
-            "object:scaling": snapToGrid,
-            "object:rotating": snapToGrid,
-          });
+          // canvas.on({
+          //   "object:moving": snapToGrid,
+          //   "object:scaling": snapToGrid,
+          //   "object:rotating": snapToGrid,
+          // });
 
           // 2. Tambahkan objek contoh
           const rect = new fabricInstance.Rect({
@@ -423,14 +423,14 @@ const FabricCanvasComponent = () => {
           >
             Save Design to DB (Simulated)
           </button>
-          <button
+          {/* <button
             onClick={toggleGrid}
             className={`px-4 py-2 text-sm font-semibold rounded-lg transition shadow-md ${
               isGridEnabled ? "bg-gray-700 text-white hover:bg-gray-800" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
             Toggle Snap Grid (10px)
-          </button>
+          </button> */}
         </div>
 
         <div className="rounded-lg overflow-hidden shadow-xl transition-shadow bg-white shadow-2xl border-2 border-gray-200">

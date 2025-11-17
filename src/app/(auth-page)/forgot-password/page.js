@@ -6,8 +6,9 @@ export default function ForgotPasswordPage() {
       <h1 className="text-2xl font-bold mb-4">Forgot Password</h1>
       <div className="grid gap-4">
         <section>
-          <h2 className="text-xl font-semibold mb-2">Welcome to your Dashboard</h2>
-          <p>This is your dashboard content area.</p>
+          <h2>Please fill your email</h2>
+          {/* <h2 className="text-xl font-semibold mb-2">Welcome to your Dashboard</h2>
+          <p>This is your dashboard content area.</p> */}
         </section>
       </div>
     </main>

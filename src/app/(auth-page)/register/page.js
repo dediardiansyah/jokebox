@@ -6,8 +6,10 @@ export default function RegisterPage() {
       <h1 className="text-2xl font-bold mb-4">Register</h1>
       <div className="grid gap-4">
         <section>
-          <h2 className="text-xl font-semibold mb-2">Welcome to your Dashboard</h2>
-          <p>This is your dashboard content area.</p>
+          <h2>Please fill your Email</h2>
+          <h2>Please fill your and Password</h2>
+          {/* <h2 className="text-xl font-semibold mb-2">Welcome to your Dashboard</h2>
+          <p>This is your dashboard content area.</p> */}
         </section>
       </div>
     </main>

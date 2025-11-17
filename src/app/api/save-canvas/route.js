@@ -1,22 +1,18 @@
-// import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
 
-// Pastikan inisialisasi Prisma Client menggunakan pola singleton
-// agar tidak membuat instance baru setiap kali hot reload di development.
-let prisma; //PrismaClient
+import { prisma } from "@/lib/prisma";
 
-if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient();
-} else {
-  // @ts-ignore
-  if (!global.prisma) {
-    // @ts-ignore
-    global.prisma = new PrismaClient();
-  }
-  // @ts-ignore
-  prisma = global.prisma;
-}
+// let prisma;
+
+// if (process.env.NODE_ENV === "production") {
+//   prisma = new PrismaClient();
+// } else {
+//   if (!global.prisma) {
+//     global.prisma = new PrismaClient();
+//   }
+//   prisma = global.prisma;
+// }
 
 /**
  * Handler untuk menyimpan data kanvas ke database PostgreSQL.
