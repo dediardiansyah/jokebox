@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "JokeBox - Official Website",
-  description: "Home of best jokes",
+  description: "Photobooth and Prints!",
 };
 
 export default function RootLayout({ children }) {
