@@ -1,62 +1,49 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-//generator client {
-//  provider = "prisma-client"
-//  output   = "../src/generated/prisma"
-//}
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
+  binaryTargets   = ["native", "rhel-openssl-3.0.x"]
+}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-    provider = "prisma-client-js"
-    output   = "../src/generated/prisma"
-    previewFeatures = ["driverAdapters"]
-    binaryTargets = ["native", "rhel-openssl-3.0.x"]
-}
-
-
 model CanvasDesign {
-    id            String            @id @default(uuid())
-    price         Int               @default(0)
-    name          String
-    description   String?
-    imageurl      String?
-    data          Json
-    is_active     Boolean           @default(true)
-    categories    Category[]
-    transactions  Transaction[]
-    createdAt     DateTime          @default(now())
-    updatedAt     DateTime          @updatedAt
+  id           String        @id @default(uuid())
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  data         Json
+  description  String?
+  imageurl     String?
+  is_active    Boolean       @default(true)
+  name         String
+  price        Int           @default(0)
+  transactions Transaction[]
+  categories   Category[]    @relation("CanvasDesignToCategory")
 }
 
 model Category {
-    id            Int               @id @default(autoincrement())
-    name          String
-    description   String?
-    imageurl      String?
-    is_active     Boolean           @default(true)
-    designs       CanvasDesign[]
+  id          Int            @id @default(autoincrement())
+  name        String
+  description String?
+  imageurl    String?
+  is_active   Boolean        @default(true)
+  designs     CanvasDesign[] @relation("CanvasDesignToCategory")
 }
 
 model Transaction {
-    id            String            @id @default(uuid())
-    id_design     String
-    total         Int               @default(0)
-    description   String?
-    key           String?
-    token         String?
-    status        String            @default("pending")
-    settledAt     DateTime?          
-    is_active     Boolean           @default(true)
-    createdAt     DateTime          @default(now())
-    updatedAt     DateTime          @updatedAt
-
-    designs       CanvasDesign      @relation(fields: [id_design], references: [id])
+  id          String       @id @default(uuid())
+  id_design   String
+  total       Int          @default(0)
+  description String?
+  key         String?
+  token       String?
+  status      String       @default("pending")
+  settledAt   DateTime?
+  is_active   Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  designs     CanvasDesign @relation(fields: [id_design], references: [id])
 }
