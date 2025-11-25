@@ -5,10 +5,10 @@ const nextConfig = {
     "/api/*/": ["./node_modules/.prisma/client/*/"],
     "/": ["./node_modules/.prisma/client//"],
   },
-  experimental: {
-    optimizePackageImports: ["@prisma/client"],
-    serverComponentsExternalPackages: ["@prisma/client", "prisma"],
-  },
+  // experimental: {
+  //   optimizePackageImports: ["@prisma/client"],
+  //   serverComponentsExternalPackages: ["@prisma/client", "prisma"],
+  // },
 };
 
 export default nextConfig;
