@@ -6,6 +6,7 @@ const nextConfig = {
     "/": ["./node_modules/.prisma/client//"],
   },
   experimental: {
+    optimizePackageImports: ["@prisma/client"],
     serverComponentsExternalPackages: ["@prisma/client", "prisma"],
   },
 };
