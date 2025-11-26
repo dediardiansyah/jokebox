@@ -477,6 +477,11 @@
   dependencies:
     "@prisma/debug" "6.16.2"
 
+"@prisma/nextjs-monorepo-workaround-plugin@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.npmjs.org/@prisma/nextjs-monorepo-workaround-plugin/-/nextjs-monorepo-workaround-plugin-7.0.1.tgz"
+  integrity sha512-dOpc8tFoohn83n3aOtwtZRYNzX3NTwDDOa+l6mjLOo5qbOiutSF/ctWiBLFb4G/nhgcDsPrgppaC6LHwU3Q9MQ==
+
 "@radix-ui/primitive@1.1.3":
   version "1.1.3"
   resolved "https://registry.npmjs.org/@radix-ui/primitive/-/primitive-1.1.3.tgz"
