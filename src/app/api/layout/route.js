@@ -4,6 +4,8 @@ import { NextResponse } from "next/server";
 // import { prisma } from "@/lib/prisma";
 import prisma from "@/lib/prisma";
 
+import db from '@/models/index';
+
 // let prisma;
 
 // if (process.env.NODE_ENV === "production") {
