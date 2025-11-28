@@ -1,37 +1,20 @@
-// import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+import { CanvasDesignService } from "@/services";
 
-// import { prisma } from "@/lib/prisma";
-import prisma from "@/lib/prisma";
+export async function GET() {
+  try {
+    // Gunakan service layer untuk mendapatkan semua desain
+    const designs = await CanvasDesignService.findAll();
 
-import db from '@/models/index';
-
-// let prisma;
-
-// if (process.env.NODE_ENV === "production") {
-//   prisma = new PrismaClient();
-// } else {
-//   if (!global.prisma) {
-//     global.prisma = new PrismaClient();
-//   }
-//   prisma = global.prisma;
-// }
-
-export async function GET(req) {
-  const newDesign = await prisma.canvasDesign.findMany({
-    where: {
-      is_active: true,
-    },
-  });
-
-  return NextResponse.json({ data: newDesign, message: "Desain berhasil didapat dari database" }, { status: 200 });
-  //   const url = new URL(request.url);
-  //   const name = url.searchParams.get("name") || "world";
-
-  //   return NextResponse.json({
-  //     ok: true,
-  //     message: `Hello ${name} from Next.js route`,
-  //     path: url.pathname,
-  //     timestamp: new Date().toISOString(),
-  //   });
+    return NextResponse.json(
+      { data: designs, message: "Desain berhasil didapat dari database" },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error fetching designs:", error);
+    return NextResponse.json(
+      { message: "Gagal mengambil desain dari database", error: error.message },
+      { status: 500 }
+    );
+  }
 }

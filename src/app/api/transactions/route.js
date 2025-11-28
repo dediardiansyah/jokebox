@@ -148,7 +148,7 @@ export async function POST(req, res) {
   //       amount,
   //       description: description || "",
   //       type,
-  //       createdAt: new Date().toISOString(),
+  //       created_at: new Date().toISOString(),
   //     };
 
   //     items.push(newItem);
