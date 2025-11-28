@@ -18,7 +18,7 @@ const AppDataSource = new DataSource({
   type: "postgres",
   url: process.env.DATABASE_URL || "",
   entities: [User, CanvasDesign, Category, Transaction],
-  synchronize: false,
+  synchronize:  process.env.NODE_ENV === "development",
   logging: process.env.NODE_ENV === "development",
   ssl:
     process.env.NODE_ENV === "production"
